@@ -35,3 +35,6 @@ const test = async()=>{
 test()
 
 
+module.exports={
+    client
+}
