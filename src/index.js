@@ -1,28 +1,24 @@
 import axios from 'axios';
 
-// const list= document.getElementById('car-list')
+const list= document.getElementById('car-list')
 
-// const init= async()=>{
-//     try{
-//         console.log('list', list);
-//         const cars= await (await axios.get('server/cars')).data
-//         console.log(cars)
+console.log('this is my car list', list)
 
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
-
-// init()
-
-// const api= axios.create({
-//     baseURL: http://localhost:3000/data
-// })
+const renderList=(cars)=>{
+    const html=cars.map((car)=>`
+    <li>
+        <a href='${car.user_id}'>${car.name}</a>
+    </li>
+    `
+    ).join('')
+    list.innerHTML=html;
+}
 
 const init=async()=>{
     try{
         const cars= (await axios.get('/cars')).data
         console.log(cars)
+        renderList(cars)
     }catch(err){
         console.log(err)
     }
