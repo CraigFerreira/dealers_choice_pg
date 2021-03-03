@@ -39,6 +39,7 @@ app.get('/cars', async(req,res, next)=>{
 })
 
 app.get('/:id', async(req,res)=>{
+    try{
     const id= req.params.id;
     const data = await client.query('SELECT * FROM "SportsCars" where user_id= $1;',[req.params.id]);
     // console.log('id', id)
@@ -69,4 +70,7 @@ app.get('/:id', async(req,res)=>{
         </html>
     `
     );
+    }catch(err){
+        console.log(err)
+    }
 })

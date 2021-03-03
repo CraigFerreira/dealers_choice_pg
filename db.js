@@ -1,12 +1,11 @@
 const pg= require('pg')
-const client = new pg.Client('postgres:localhost/sportsCars_db')
+const client = new pg.Client(process.env.DATABASE_URL||'postgres:localhost/sportsCars_db')
 
 
 const syncAndSeed= async()=>{
 
     const SQL=`
-    DROP TABLE IF EXISTS "SportsCars"
-    ;
+    DROP TABLE IF EXISTS "SportsCars";
     CREATE TABLE "SportsCars"(
         user_id serial primary key,
         name varchar(20) not null,
