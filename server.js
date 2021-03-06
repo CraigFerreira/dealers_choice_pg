@@ -28,7 +28,7 @@ listen()
 
 app.get('/cars', async(req,res, next)=>{
     try{
-    const data = await client.query('SELECT * FROM "SportsCars"');
+    const data = await client.query('SELECT * FROM "SportsCars";');
     // console.log('data',data)
     const cars = data.rows;
     // console.log(cars)

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "build:dev": "npm run build -- --watch --mode=development",
-    "start:dev": "nodemon server --ignore dist/ --ignore src & npm run build:dev",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development --watch",
+    "start:dev": "node-dev server --ignore dist/ --ignore src & npm run build:dev",
     "start": "node server.js"
   },
   "repository": {
@@ -20,11 +20,16 @@
   },
   "homepage": "https://github.com/CraigFerreira/dealers_choice_pg#readme",
   "dependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-react": "^7.12.13",
     "axios": "^0.21.1",
+    "babel-loader": "^5.4.2",
     "express": "^4.17.1",
     "pg": "^8.5.1",
-    "webpack": "^5.24.2",
+    "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0"
   },
   "devDependencies": {}
 }
+
+
